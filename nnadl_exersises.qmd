@@ -1,0 +1,39 @@
+# Exercises from Neural Networks and Deep Learning
+
+## Sigmoid neurons simulating perceptrons
+
+### Part 1
+
+From Equation (2) of NNADL, we know that perceptron rule can be written as
+
+$$
+\mathrm{output} = 
+\begin{cases}
+0 & \mbox{if }w \cdot x + b \leq 0 \\
+1 & \mbox{if }w \cdot x + b> 0.
+\end{cases}
+$$
+
+If we multiply all the weights and biases by a constant $c$, it will not affect our decision rule.
+
+If $w \cdot x + b\leq 0$, then 
+$$
+\begin{aligned}
+w \cdot x + b & \leq 0 & \mbox{assumption} \\
+c (w \cdot x + b\leq 0) & \leq c \cdot 0 & \mbox{multiply both sides by }c \\
+ c (w \cdot x + b\leq 0) & \leq c & \mbox{simplification} 
+\end{aligned}
+$$
+Similarly, if $w \cdot x + b > 0$, then multipying the weights and biases by a positive constant would affect the decision rule.
+
+
+Thus, we see that multiplying the weights and bias by a positive constant doesn't affect the perceptron decision rule.
+
+### Part 2
+
+If $w \cdot x + b > 0$, and $c \rightarrow \infty$, 
+then $c (w \cdot x + b) > 0 \rightarrow \infty$, which implies that $\exp(- c (w \cdot x + b)) \rightarrow 0$, which implies that $1 + \exp(- c (w \cdot x + b)) \rightarrow 1 + 0 = 1$, which implies that $1/(1 + \exp(- c (w \cdot x + b)) \rightarrow 1$, which is the same conclusion as the perceptron rule.
+
+A similar procedure shows that $w \cdot x + b < 0$, and $c \rightarrow \infty$, then $1/(1 + \exp(- c (w \cdot x + b)) \rightarrow 0$. 
+
+However, if $w \cdot x + b = 0$, then $1/(1 + \exp(- c (w \cdot x + b)) = 1/2$, so we can never have evidence supporting one decision over another.
